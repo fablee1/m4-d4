@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <WarningSign text="HELLO" />
-      <MyBadge text='Fantasy' variant='danger'/>
       <BookList books={Fantasy} />
     </div>
   );

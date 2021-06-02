@@ -3,7 +3,7 @@ import React from 'react'
 
 
 const MyBadge = (props) => (
-    <Badge variant={props.variant}>{props.text}</Badge>
+    <Badge className="d-flex justify-content-center align-items-center" variant={props.variant}><span>{props.text}</span></Badge>
 )
 
 export default MyBadge
