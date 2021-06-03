@@ -1,6 +1,6 @@
 # CHECK OUR LIVE DEMO
 
-[DEMO HERE](https://fablee1.github.io/m4-d3-teamwork/)
+NO DEMO RIGHT NOW
 
 ^
 ^
