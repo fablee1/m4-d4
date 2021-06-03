@@ -1,6 +1,6 @@
 {
-  "homepage": "http://fablee1.github.io/m4-d3-teamwork",
-  "name": "m4-d3-teamwork",
+  "homepage": "http://fablee1.github.io/m4-d4",
+  "name": "m4-d4",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,7 +12,7 @@
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",
     "react-dom": "^17.0.2",
-    "react-scripts": "^1.1.5",
+    "react-scripts": "^4.0.3",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
