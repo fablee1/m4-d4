@@ -1,7 +1,7 @@
 import { Card, Col } from 'react-bootstrap'
 import React from 'react'
 import MyBadge from './MyBadge'
-
+import CommentArea from './CommentArea'
 
 const SingleBook = (props) => (
     <Col xs={12} sm={6} md={4} lg={3}>
@@ -12,6 +12,7 @@ const SingleBook = (props) => (
         </div>
         <Card.Body>
             <Card.Title>{props.title}</Card.Title>
+            {props.id === props.asin ? <CommentArea asin={props.asin} /> : null}
         </Card.Body>
     </Card>
     </Col>
