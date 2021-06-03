@@ -33,7 +33,7 @@ class BookList extends React.Component {
                         </Col>
                     </Row>
                     <Row>
-                        {this.state.filteredBooks.map(book => <SingleBook {...book} id={this.state.selectedId} changeSelected={this.changeSelected} />)}
+                        {this.state.filteredBooks.map(book => <SingleBook {...book} id={this.state.selectedId} key={book.asin} changeSelected={this.changeSelected} />)}
                     </Row>
                 </Container>)
     }

@@ -44,6 +44,7 @@ class AddComment extends React.Component {
                         elementId: this.props.asin
                     }
                 })
+                this.props.commentsUpdated()
             } else {
                 console.log('Error with POST request')
             }
@@ -54,14 +55,14 @@ class AddComment extends React.Component {
 
     render () {
         return (
-            <Form onSubmit={(e) => this.sendComment(e)}>
+            <Form onSubmit={(e) => this.sendComment(e)} className="pt-2 mt-2 border-top border-dark">
                 <Form.Row>
                     <Col>
                         <Form.Control type="text" placeholder="Your comment" value={this.state.comment.comment} id="comment" onChange={e => this.inputChange(e)} />
                     </Col>
                 </Form.Row>
-                <Form.Row>
-                    <Col>
+                <Form.Row className="d-flex align-items-center mt-1">
+                    <Col xs={3}>
                         <Form.Control as="select" defaultValue="Rating..." value={this.state.comment.rate} id="rate" onChange={e => this.inputChange(e)} >
                             <option>1</option>
                             <option>2</option>
@@ -70,8 +71,8 @@ class AddComment extends React.Component {
                             <option>5</option>
                         </Form.Control>
                     </Col>
-                    <Col>
-                        <Button variant="primary" type="submit">Add Comment</Button>
+                    <Col xs={9}>
+                        <Button variant="primary" type="submit" id="sendBtn">Add Comment</Button>
                     </Col>
                 </Form.Row>
             </Form>

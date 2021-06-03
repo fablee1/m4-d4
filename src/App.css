@@ -40,3 +40,18 @@
 .card-shadow {
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.384);
 }
+
+.list-group {
+  border-radius: 0!important;
+  border-left: 0;
+  border-right: 0;
+}
+
+#sendBtn {
+  font-size: 15px;
+  width: 100%;
+}
+
+#rate {
+  padding-left: 2px;
+}
