@@ -32,22 +32,24 @@ class CommentsList extends React.Component {
     }
 
     componentDidUpdate = async () => {
-        try {
-            let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + this.props.asin, {
-                headers: {
-                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlMzU3MWNlYWY0ODAwMTVjOTE4NjIiLCJpYXQiOjE2MjI3MjgxNjQsImV4cCI6MTYyMzkzNzc2NH0.9IIHO9P16tKwX-Ou8dNdpGV3lroNfYEEjkMGlNmsbhw"
-                }
-            })
+        if(this.props.updated) {
+            try {
+                let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + this.props.asin, {
+                    headers: {
+                        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlMzU3MWNlYWY0ODAwMTVjOTE4NjIiLCJpYXQiOjE2MjI3MjgxNjQsImV4cCI6MTYyMzkzNzc2NH0.9IIHO9P16tKwX-Ou8dNdpGV3lroNfYEEjkMGlNmsbhw"
+                    }
+                })
 
-            let comments = await response.json()
+                let comments = await response.json()
 
-            this.setState({
-                comments: comments,
-                isLoading: false
-            })
-        } catch (error) {
-            console.log(error)
-            this.setState({ isLoading: false})
+                this.setState({
+                    comments: comments,
+                    isLoading: false
+                })
+            } catch (error) {
+                console.log(error)
+                this.setState({ isLoading: false})
+            }
         }
     }
 
