@@ -25,7 +25,7 @@ class AddComment extends React.Component {
 
     sendComment = async (e) => {
         e.preventDefault()
-
+        console.log(this.state, this.props.asin)
         try {
             let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
                 method: 'POST',
@@ -54,6 +54,7 @@ class AddComment extends React.Component {
     }
 
     render () {
+        console.log(this.state.comment.elementId)
         return (
             <Form onSubmit={(e) => this.sendComment(e)} className="pt-2 mt-2 border-top border-dark">
                 <Form.Row>

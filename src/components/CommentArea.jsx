@@ -14,6 +14,7 @@ class CommentArea extends React.Component {
     }
 
     render() {
+        console.log()
         return (
                 <>
                     <CommentsList asin={this.props.asin} commentsUpdated={this.commentsUpdated} updated={this.state.updated} />
