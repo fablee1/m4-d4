@@ -5,7 +5,7 @@ import CommentArea from './CommentArea'
 
 const SingleBook = (props) => (
     <Col {...props.cols}>
-    <Card className={props.id === props.asin ? 'card-shadow' : null} onMouseEnter={() => props.changeSelected(props.asin)} onMouseLeave={!props.staySelected ? () => props.changeSelected(null) : null}>
+    <Card className={props.id === props.asin ? 'card-shadow' : null} onClick={() => props.staySelected ? props.changeSelected(props.asin) : ''} onMouseEnter={() => props.staySelected ? '' : props.changeSelected(props.asin)} onMouseLeave={() => props.staySelected ? '' : props.changeSelected(null)}>
         <div className="imgDiv">
             <Card.Img variant="top" src={props.img} /> 
             {props.id === props.asin ? <MyBadge text={props.category} variant='danger'/> : null}

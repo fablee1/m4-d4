@@ -8,7 +8,7 @@ class AddComment extends React.Component {
         comment: {
             comment: '',
             rate: 1,
-            elementId: this.props.asin
+            elementId: this.props.asin,
         }
     }
 
@@ -23,9 +23,15 @@ class AddComment extends React.Component {
         })
     }
 
+    componentDidUpdate = (prevProps) => {
+        if(!(prevProps.asin === this.props.asin)) { 
+            this.setState({comment: {...this.state.comment, elementId: this.props.asin}})
+        }
+    }
+
     sendComment = async (e) => {
         e.preventDefault()
-        console.log(this.state, this.props.asin)
+
         try {
             let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
                 method: 'POST',
@@ -35,7 +41,7 @@ class AddComment extends React.Component {
                     "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlMzU3MWNlYWY0ODAwMTVjOTE4NjIiLCJpYXQiOjE2MjI3MjgxNjQsImV4cCI6MTYyMzkzNzc2NH0.9IIHO9P16tKwX-Ou8dNdpGV3lroNfYEEjkMGlNmsbhw"
                 }
             })
-            console.log(response)
+
             if (await response.ok) {
                 this.setState({
                     comment: {
@@ -54,7 +60,7 @@ class AddComment extends React.Component {
     }
 
     render () {
-        console.log(this.state.comment.elementId)
+
         return (
             <Form onSubmit={(e) => this.sendComment(e)} className="pt-2 mt-2 border-top border-dark">
                 <Form.Row>

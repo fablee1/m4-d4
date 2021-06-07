@@ -31,8 +31,8 @@ class CommentsList extends React.Component {
         }
     }
 
-    componentDidUpdate = async () => {
-        if(this.props.updated) {
+    componentDidUpdate = async (prevProps) => {
+        if(this.props.updated || prevProps.asin !== this.props.asin) {
             try {
                 let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + this.props.asin, {
                     headers: {
