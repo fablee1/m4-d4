@@ -1,26 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CommentsList from './CommentsList'
 import AddComment from './AddComment'
 
+const CommentArea = (props) => {
 
-class CommentArea extends React.Component {
+    const [updated, setUpdated] = useState(false)
 
-    state = {
-        updated: false
+    useEffect(() => {
+        setUpdated(false)
+    }, [updated])
+
+    const commentsUpdated = () => {
+        setUpdated(true)
     }
 
-    commentsUpdated = () => {
-        this.setState({updated: true}, () => this.setState({updated: false}))
-    }
-
-    render() {
-        return (
-                <>
-                    <CommentsList asin={this.props.asin} commentsUpdated={this.commentsUpdated} updated={this.state.updated} />
-                    <AddComment asin={this.props.asin} commentsUpdated={this.commentsUpdated} />
-                </>
-        )
-    }
+    return (
+        <>
+            <CommentsList asin={props.asin} commentsUpdated={commentsUpdated} updated={updated} />
+            <AddComment asin={props.asin} commentsUpdated={commentsUpdated} />
+        </>
+    )
 }
 
 export default CommentArea
